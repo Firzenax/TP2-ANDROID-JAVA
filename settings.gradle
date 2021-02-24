@@ -1,2 +1,3 @@
+include ':flickrapp'
 include ':app'
 rootProject.name = "Lab2-Android-Java"
