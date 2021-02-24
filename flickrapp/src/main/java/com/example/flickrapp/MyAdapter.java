@@ -37,23 +37,14 @@ public class MyAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-//        ConvertView qui permet d'afficher tous les urls sur l'écran
-//        if (convertView == null) {
-//            LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-//            convertView = inflater.inflate(R.layout.textviewlayout, parent, false);
-//            ((TextView)convertView.findViewById(R.id.textView2)).setText(vector.get(position));
-//        }
 
-        // chargement des layouts en avance pour un scroll éventuel
         if (convertView == null) {
             LayoutInflater inflater = LayoutInflater.from(parent.getContext());
             convertView = inflater.inflate(R.layout.bitmaplayout, parent, false);
         }
 
-        // Cré&ation de l'imageView afin de pouvoir l'utiliser dans la lambda expression. Si instanciée dans la lambda exp, ça ne fonctionne pas.
         ImageView img = (ImageView)convertView.findViewById(R.id.imageView);
 
-        // Création d'un bitmap pour permettre de charger l'image
         Response.Listener<Bitmap> rep_listener = response -> {
             img.setImageBitmap(response);
         };
